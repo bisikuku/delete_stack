@@ -3,12 +3,11 @@ import functools
 import re
 
 ###### Info about code ##########
-#List and delete spectific stacks
+# List stacks
 # Basic assumption here is that you have permissions to access the AWS resources.
 # You can use the AWS CLI to check the permissions.
 # You can use the AWS CloudFormation console to check the stack status.
 # boto3 is used to access the AWS resources and needs to be installed.
-# This small snippet is used to get the list of specific stacks and delete them.
 # Please be free to use it in your own projects and feel free to modify it, improve it and share it. 
 #################################
 
@@ -37,10 +36,4 @@ for region in regions:
     def get_stacksList():
         return [st for st in stacks if any(sub in st for sub in ['partern1', 'partern2', 'partern3'])]
     stacks = (get_stacksList())
-    for stack in stacks:
-        print(stack)
-        client = boto3.client('cloudformation' , region_name=region)
-        client.delete_stack(StackName=stack)
-
-
-
+    print(stacks)
