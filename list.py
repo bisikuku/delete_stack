@@ -36,4 +36,4 @@ for region in regions:
     def get_stacksList():
         return [st for st in stacks if any(sub in st for sub in ['partern1', 'partern2', 'partern3'])]
     stacks = (get_stacksList())
-    print(stacks)
+    print("Region/Stacks " + region, stacks)

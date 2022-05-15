@@ -41,6 +41,8 @@ for region in regions:
         print(stack)
         client = boto3.client('cloudformation' , region_name=region)
         client.delete_stack(StackName=stack)
+    
+    print("All stacks in region " + region + " have been deleted")
 
 
 
